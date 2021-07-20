@@ -87,6 +87,7 @@ function App() {
       >
         Buy Now
       </Button>
+      
     </div>
   );
 }
