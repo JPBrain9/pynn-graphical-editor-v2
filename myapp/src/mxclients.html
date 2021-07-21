@@ -5,12 +5,15 @@
 
    <!-- Sets the basepath for the library if not in same directory -->
    <script type="text/javascript">
-      mxBasePath = 'D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js';
+      mxBasePath = '/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/mxClient.js';
+      //D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js
    </script>
 
    <!-- Loads and initializes the library -->
-   <script type="text/javascript" src="D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js"></script>
-
+   <script type="text/javascript" src="/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/mxClient.js">
+   //D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js</script>
+   <script type="text/javascript" mxBasePath="/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/src/js/mxEditor.js"></script>
+   <script type="text/javascript" src="/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/src/js/mxEditor.js"></script>
    <!-- Example code -->
    <script type="text/javascript">
    
@@ -54,33 +57,25 @@
             }
          }
       };
-      function add2 (container){
-         var graph = new mxGraph(container);
-
-      // Enables rubberband selection
-         new mxRubberband(graph);
-
-      // Gets the default parent for inserting new cells. This
-      // is normally the first child of the root (ie. layer 0).
-         var parent = graph.getDefaultParent();
-         graph.getModel().beginUpdate();
-            
-            try
-            {
-               var v3 = graph.insertVertex(parent, null,
-                        'added', 300, 20, 80, 30);
-            }
-            finally
-            {
-               // Updates the display
-               graph.getModel().endUpdate();
-      }}
+      function add2 (){
+    var userObject = new Object();
+    var parent = editor.graph.getDefaultParent();
+    var model = editor.graph.model;
+    model.beginUpdate();
+    try
+    {
+      editor.graph.insertVertex(parent, null, userObject, 20, 20, 80, 30);
+    }
+    finally
+    {
+      model.endUpdate();
+    }}
    </script>
 </head>
 
 <!-- Page passes the container for the graph to the program -->
 <body onload="main(document.getElementById('graphContainer'))">
-   <button type="button" onclick="add2(document.getElementById('graphContainer'));">Add a new population</button>
+   <button type="button" onclick="add2()">Add a new population</button>
 
    <!-- Creates a container for the graph with a grid wallpaper -->
    <div id="graphContainer"
