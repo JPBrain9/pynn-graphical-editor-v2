@@ -5,13 +5,13 @@
 
    <!-- Sets the basepath for the library if not in same directory -->
    <script type="text/javascript">
-      mxBasePath = '/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/mxClient.js';
-      //D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js
+   //mxBasePath = '/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/mxClient.js';
+      xBasePath = 'D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js',
    </script>
 
    <!-- Loads and initializes the library -->
-   <script type="text/javascript" src="/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/mxClient.js">
-   //D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js</script>
+   <script type="text/javascript" src="D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js">
+   //"/home/julienpanteri/pynn-graphical-editor-v2/node_modules/mxgraph/javascript/mxClient.js"<script type="text/javascript" src=D:\GitHub\pynn-graphical-editor-v2\myapp\node_modules\mxgraph\javascript\mxClient.js</script>
 
    <!-- Example code -->
    <script type="text/javascript">
@@ -26,6 +26,7 @@
          {
             mxUtils.error('Browser is not supported!', 200, false);
          }
+         
          else
          {
             // Creates the graph inside the given container
@@ -53,7 +54,7 @@
             {
                // Updates the display
                graph.getModel().endUpdate();
-               var config = mxUtils.load('editors/config/keyhandler-commons.xml').getDocumentElement();
+               var config = mxUtils.load('D:\GitHub\pynn-graphical-editor-v2\node_modules\mxgraph2\mxgraph-master\javascript\examples\editors\configkeyhandler-commons.xml').getDocumentElement();
                var editor = new mxEditor(config);
             }
          }
@@ -77,10 +78,20 @@
 <!-- Page passes the container for the graph to the program -->
 <body onload="main(document.getElementById('graphContainer'))">
    <button type="button" onclick="add2()">Add a new population</button>
+   
+   
 
    <!-- Creates a container for the graph with a grid wallpaper -->
    <div id="graphContainer"
       style="overflow:hidden;width:1366px;height:768px;background:url('editors/images/grid.gif')">
+      <add as="symbol">
+         <Symbol label="Symbol" customAttribute="whatever">
+           <mxCell vertex="1" connectable="1" style="symbol;image=images/event.png">
+             <mxGeometry as="geometry" width="32" height="32"/>
+           </mxCell>
+           <CustomChild customAttribute="whatever"/>
+         </Symbol>
+       </add>
    </div>
 </body>
 </html>
