@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FormPopulation() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [valuesimulator, setSimulator] = React.useState('');
+  const [CellType, setCellType] = React.useState('');
   const [name, setName] = React.useState('');
   const [size, setSize] = React.useState('');
   const [rate, setRate] = React.useState('');
@@ -71,8 +71,8 @@ export default function FormPopulation() {
     setDuration(newValue);
    };
 
-  const handleChangeSimulator = (event) => {
-    setSimulator(event.target.value);
+  const handleChangeCellType = (event) => {
+    setCellType(event.target.value);
   };
   const handleChangeName = (event) => {
     setName(event.target.value);
@@ -157,15 +157,15 @@ export default function FormPopulation() {
       </div>
       <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Simulator</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">Cell Type</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={valuesimulator}
-          onChange={handleChangeSimulator}
+          value={CellType}
+          onChange={handleChangeCellType}
         >
         <MenuItem value="None">
         <em>None</em>
@@ -176,7 +176,7 @@ export default function FormPopulation() {
         </Select>
       </FormControl>
       </div>
-      {valuesimulator=="SpikeSourcePoisson" &&   <React.Fragment><div>
+      {CellType=="SpikeSourcePoisson" &&   <React.Fragment><div>
       <FormLabel component="legend" className={classes.formControl}>Parameters</FormLabel>
       <TextField
           label="Rate"
@@ -231,9 +231,9 @@ export default function FormPopulation() {
             label="v"
           />
          </FormGroup></FormControl>
-         <p>simulator : {valuesimulator}</p>
+         <p>Cell Type : {CellType}</p>
         </div></React.Fragment>}
-        {valuesimulator=="IF-curr-exp" && <React.Fragment>
+        {CellType=="IF-curr-exp" && <React.Fragment>
         <div>
       <FormLabel component="legend" className={classes.formControl}>Parameters</FormLabel>
       <TextField
@@ -331,7 +331,7 @@ export default function FormPopulation() {
             label="v"
           />
          </FormGroup></FormControl>
-         <p>simulator : {valuesimulator}</p>
+         <p>Cell Type : {CellType}</p>
         </div>
 </React.Fragment>}
 {((rate !=="") && (start !=='') && (duration !=='') && (name !=='') && (size !=='') ) ?

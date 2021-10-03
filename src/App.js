@@ -87,20 +87,21 @@ function App(props) {
 
 	return (
 		<div id="main">
-		  		<ObjSelect id="objectSelector" 	graph={graph} 
-				  								valid={validated} setValid={setValidated} 
-												// celltype={celltype} setCellType={setCellType}
-				  								parentCall={callObjSelect}/>
-      			<Toolbar id="toolbar" graph={graph} parentCall={callToolbar}/>
-      			<MainCanvas id="canvas" setGraph={setGraph} />
-				<ModalForm id="modalFormPop" 	graph={graph} 
-											valid={validated} setValid={setValidated} 
-											// celltype={celltype} setCellType={setCellType}
-											parentCall={callModalForm} />
-				{/* <ProjModalForm id="modalFormProj" graph={graph} 
-											valid={validated} setValid={setValidated} 
-											celltype={celltype} setCellType={setCellType}
-											parentCall={callProjModalForm} /> */}
+			<ObjSelect id="objectSelector"  graph={graph} 
+                                                valid={validated} setValid={setValidated} 
+                                                // celltype={celltype} setCellType={setCellType}
+                                                parentCall={callObjSelect}/>
+                <Toolbar id="toolbar" graph={graph} parentCall={callToolbar}/>
+                <MainCanvas id="canvas" setGraph={setGraph} />
+                <ModalForm id="modalFormPop"    graph={graph} 
+                                            valid={validated} setValid={setValidated} 
+                                            // celltype={celltype} setCellType={setCellType}
+                                            parentCall={callModalForm} />
+                {/* <ProjModalForm id="modalFormProj" graph={graph} 
+                                            valid={validated} setValid={setValidated} 
+                                            celltype={celltype} setCellType={setCellType}
+                                            parentCall={callProjModalForm} /> */}
+
 		</div>
 
 
@@ -109,7 +110,7 @@ function App(props) {
 
 }
 //<ControlledPopup open={open} setOpen={setOpen}/>
-
+//<FormPopulation/>
 
 
 
